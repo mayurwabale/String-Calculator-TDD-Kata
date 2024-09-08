@@ -45,6 +45,17 @@ describe('Addition', function() {
     const input = '//:\n1:2:6:1';
     const expectedSum = 10;
     const result = addition.add(input);
-    expect(result).toBe(expectedSum);
+    expect(addition.add('//:\n1:2:6:1')).toBe(10);
+    expect(addition.add('//}\n1}2}6}1')).toBe(10);
   });
+
+  it('should throw an exception for negative numbers', () => {
+    expect(() => addition.add('//:\n1:2:6:-1')).toThrowError('Negative numbers not allowed: -1');
+    expect(() => addition.add('2,-7')).toThrowError('Negative numbers not allowed: -7');
+    expect(() => addition.add('-10,-20,-30')).toThrowError('Negative numbers not allowed: -10,-20,-30');
+
+    
+    expect(addition.add('5,3')).toBe(8);
+    expect(addition.add('2,7')).toBe(9);
+});
 });
