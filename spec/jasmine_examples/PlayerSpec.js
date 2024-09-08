@@ -16,5 +16,10 @@ describe('Addition', function() {
     expect(result).toBe(expectedSum);
   });
   
-
+  it('should return the sum of comma-separated numbers', () => {
+    const input = '1,2';
+    const expectedSum = 3;
+    const result = addition.add(input);
+    expect(result).toBe(expectedSum);
+  });
 });
