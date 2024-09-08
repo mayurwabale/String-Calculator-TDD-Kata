@@ -58,4 +58,10 @@ describe('Addition', function() {
     expect(addition.add('5,3')).toBe(8);
     expect(addition.add('2,7')).toBe(9);
 });
+
+it('should not add number larger than 1000', () => {
+  expect( addition.add('//:\n1:2:6:2000')).toBe(9);
+  expect( addition.add('//&\n1&0&6&6000')).toBe(7);
+  
+});
 });
