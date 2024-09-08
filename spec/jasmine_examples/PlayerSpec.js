@@ -40,4 +40,11 @@ describe('Addition', function() {
     const anotherResult = addition.add(anotherInput);
     expect(anotherResult).toBe(anotherExpectedSum);
   });
+
+  it('should handle different delimeters', () => {
+    const input = '//:\n1:2:6:1';
+    const expectedSum = 10;
+    const result = addition.add(input);
+    expect(result).toBe(expectedSum);
+  });
 });
