@@ -22,4 +22,22 @@ describe('Addition', function() {
     const result = addition.add(input);
     expect(result).toBe(expectedSum);
   });
+
+  it('should return the sum  of n comma-separated numbers', () => {
+    const input = '1,2,5,7,8,9';
+    const expectedSum = 32;
+    const result = addition.add(input);
+    expect(result).toBe(expectedSum);
+  });
+
+  it('Allow the  method to handle new lines between numbers', () => {
+    const input = '1\n2,3';
+    const expectedSum = 6;
+    const result = addition.add(input);
+    expect(result).toBe(expectedSum);
+    const anotherInput = '2,\n4,6'
+    const anotherExpectedSum = 12;
+    const anotherResult = addition.add(anotherInput);
+    expect(anotherResult).toBe(anotherExpectedSum);
+  });
 });
